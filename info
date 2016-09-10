@@ -1,0 +1,28 @@
+ASSETS
+    generate assets in prod
+    php bin/console cache:clear -e prod
+    php bin/console assetic:dump --env="prod"
+
+SECURITY
+    php bin/console security:check
+
+CACHE
+    php bin/console cache:clear --env=prod
+
+ENTITIES
+    php bin/console doctrine:generate:entities AppBundle
+
+DB
+    php bin/console doctrine:database:create
+    php bin/console doctrine:schema:create
+    php bin/console doctrine:schema:create --dump-sql
+
+FIXTURES
+     php bin/console doctrine:fixtures:load
+KNP PAG
+    composer require knplabs/knp-paginator-bundle
+Find Paginator
+     php bin/console debug:container | grep paginator
+
+FOSUserBundle
+    php bin/console doctrine:schema:update --force

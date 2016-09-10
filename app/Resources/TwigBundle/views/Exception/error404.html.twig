@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% set hideSidebar = true %}
+
+{% block pageTitle %}Page not found{% endblock %}
+
+{% block contentTitle %}Page not found{% endblock %}
+
+{% block content %}
+
+    <div class="error-page">
+        <img src="{{ asset('img/error404.png') }}" alt="error404">
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+# FosUserBundle
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+app_pages:
+    resource: "@AppBundle/Controller/PagesController.php"
+    type:     annotation
+
+app_posts:
+    resource: "@AppBundle/Controller/PostsController.php"
+    type:     annotation
+
+

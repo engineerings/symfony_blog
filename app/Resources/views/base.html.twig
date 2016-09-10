@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% spaceless %}{% block pageTitle %}Home page {% endblock %}{% endspaceless %}| MikeBlog</title>
+    <!--<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">-->
+    <meta name="description" content="{% spaceless %}{% block pageDescription %}{% endblock %}{% endspaceless %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    {% block stylesheets %}
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+
+        {% stylesheets
+            'css/normalize.css'
+            'css/main.css'
+            filter='cssrewrite,yui_css'
+            output = 'assets/css/compiled.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
+    {% endblock %}
+
+</head>
+<body>
+
+<header id="header">
+    <div class="top">
+        <div class="pos-center">
+
+            <a class="mobile-menu-trigger" href="#">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+
+            <div class="menu">
+                <nav>
+                    {{ printMainMenu() }}
+                </nav>
+
+                {{ printCategoriesList() }}
+
+                <!--
+                <div class="user-panel">
+                    <span class="user-name">Zalogowany jako <a href="#">bob</a></span>
+                    <a class="btn-green" href="#">Wyloguj</a>
+                </div>
+                 -->
+                {% include ':template:login.html.twig' %}
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    {% block topImage %}
+    <div class="top-image"></div>
+    {% endblock %}
+</header>
+
+<div id="main">
+
+    <div class="header">
+        <div class="pos-center">
+            <h2 class="left-side">{% spaceless %}{% block contentTitle %}Recent posts{% endblock %}{% endspaceless %}</h2>
+
+            {% if hideSearch is  not defined %}
+                <form class="right-side" action="{{ path('blog_search') }}">
+                    <input type="text" name="search" value="{{ searchParam is defined ? searchParam : '' }}" placeholder="Search">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="pos-center">
+            {% block content %}{% endblock %}
+
+            {% if hideSidebar is not defined %}
+            <div class="right-side sidebar">
+                <div class="menu">
+                    <h3>Category</h3>
+
+                    {{ printCategoriesList() }}
+
+                </div>
+
+                {{ printTagsCloud() }}
+
+                <div class="list-widget">
+                    <h3>Most commented</h3>
+                    <ul>
+                        <li><a href="#">PHP (13)</a></li>
+                        <li><a href="#">JAVA (76)</a></li>
+                        <li><a href="#">CSS (53)</a></li>
+                    </ul>
+                </div>
+
+            </div> <!-- .right-side -->
+            {% endif %}
+        </div> <!-- .content -->
+
+        <div class="clearfix"></div>
+    </div> <!-- .pos-center -->
+</div> <!-- #main -->
+
+<footer id="footer">
+    <div class="top">
+        <div class="pos-center">
+                {{ printMainMenu() }}
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="pos-center">
+            <div class="copyrights">
+                <p>&copy; 2014 All rights reserved.</p>
+                <span>Author Mike</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% block javascriptis %}
+
+    {% javascripts
+        'js/vendor/jquery-1.10.2.min.js'
+        'js/vendor/*'
+        'js/plugins.js'
+        'js/main.js'
+        output = 'assets/js/compiled.js'
+        filter='?yui_js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+
+</body>
+</html>

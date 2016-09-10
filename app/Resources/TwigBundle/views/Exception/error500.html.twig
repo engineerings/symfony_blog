@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% set hideSidebar = true %}
+
+{% block pageTitle %}An unexpected error occurred{% endblock %}
+
+{% block contentTitle %}An unexpected error occurred{% endblock %}
+
+{% block content %}
+
+    <div class="error-page">
+        <img src="{{ asset('img/error500.png') }}" alt="error500">
+    </div>
+
+{% endblock %}

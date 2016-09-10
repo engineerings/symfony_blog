@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %}Contact {% endblock %}
+
+
+{% block contentTitle %}Contact {% endblock %}
+
+{% block content %}
+
+    <div class="contact-page left-side">
+
+        <div class="notification success">
+            Message was <strong>sent successfully!</strong>
+        </div>
+
+        <form action="#" method="post">
+            <div class="form-row">
+                <label for="name" class="required">
+                    First name and last name
+                </label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="form-row error">
+                <label for="email" class="required">
+                    E-mail adress
+                </label>
+                <input type="text" id="email">
+                <span>Please correctly complete the field</span>
+            </div>
+
+            <div class="form-row error">
+                <label for="message" class="required">Your message</label>
+                <textarea name="message" id="message"></textarea>
+                <span>Please correctly complete the field</span>
+            </div>
+
+            <button class="btn-green submit">Send</button>
+        </form>
+
+    </div> <!-- .left -->
+
+{% endblock %}
