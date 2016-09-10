@@ -31,7 +31,7 @@ class PostsController extends Controller
         return $this->render('posts/postsList.html.twig',
             array(
                 'pagination' => $pagination,
-                'listTitle'  => 'Najnowsze wpisy'
+                'listTitle'  => 'Recent posts'
             ));
     }
 

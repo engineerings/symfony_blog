@@ -26,3 +26,8 @@ Find Paginator
 
 FOSUserBundle
     php bin/console doctrine:schema:update --force
+
+PHPUnit
+    phpunit tests/AppBundle
+    phpunit tests/AppBundle/ --coverage-html web/coverage
+

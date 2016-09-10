@@ -1,5 +1,7 @@
 <?php
+
 namespace AppBundle\Libs;
+
 class Utils
 {
     static public function sluggify($text) {

@@ -106,6 +106,10 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
+
+        if(!isset($this->slug)) {
+            $this->setSlug($this->getTitle());
+        }
         return $this;
     }
 
